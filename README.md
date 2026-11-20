@@ -8,7 +8,7 @@ One image summing up the world news of Friday 20 November 2026: Russian missiles
 
 ![World news, 20 November 2026](entry.png)
 
-The image is drawn as SVG in [`design/news.html`](design/news.html) and rendered to `entry.png` (1024×1024 PNG) with Playwright by [`design/render.mjs`](design/render.mjs). `main.ts` checks it against the contest's limits and copies it to `/output/entry.png`.
+The image is drawn as flat, glowing vector scenes (SVG, in the spirit of science-explainer animation) in [`design/news.html`](design/news.html) and rendered to `entry.png` (1024×1024 PNG) with Playwright by [`design/render.mjs`](design/render.mjs). `main.ts` checks it against the contest's limits and copies it to `/output/entry.png`.
 
 Each story was checked against reporting dated 20 November 2026 (Reuters, AFP, PTI, Saudi Press Agency).
 
