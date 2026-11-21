@@ -1,3 +1,4 @@
 out/
 node_modules/
 transcripts*.tar.gz
+*_300.png

@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>World news broadsheet, Friday 20 November 2026</title>
+<style>
+  :root {
+    --paper: #f5f0e4; --ink: #16192a; --muted: #4a4d5c; --rule: #16192a;
+    --narrow: 'Liberation Sans Narrow', 'Liberation Sans', sans-serif;
+    --sans: 'Liberation Sans', 'DejaVu Sans', sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1024px; height: 1024px; overflow: hidden; background: var(--paper); color: var(--ink); }
+
+  /* Masthead: the date, big enough to read in a 300 px thumbnail */
+  .mast { position: absolute; left: 0; top: 0; width: 1024px; height: 134px; background: var(--ink); color: #fff; padding: 12px 18px 0; }
+  .mast .top { display: flex; justify-content: space-between; font: 700 15px var(--sans); letter-spacing: 2.5px; color: #ffcb47; }
+  .mast h1 { font: 700 92px/0.98 var(--narrow); letter-spacing: -1px; margin-top: 4px; white-space: nowrap; }
+  .mast .deck { position: absolute; left: 18px; right: 18px; bottom: 0; height: 0; }
+
+  /* Hero row: four lead stories with drawings */
+  .heroes { position: absolute; left: 16px; top: 144px; width: 992px; height: 242px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .hero { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 0 #d8d0bd; display: flex; flex-direction: column; }
+  .hero .art { position: relative; height: 114px; }
+  .hero .art svg { display: block; width: 100%; height: 114px; }
+  .hero .label { position: absolute; left: 8px; top: 8px; padding: 3px 9px 4px; border-radius: 6px; font: 700 25px/1 var(--narrow); color: #fff; letter-spacing: .3px; }
+  .hero .num { position: absolute; right: 8px; bottom: 7px; padding: 2px 7px; border-radius: 5px; background: rgba(10,10,30,.78); color: #fff; font: 700 17px/1.1 var(--narrow); }
+  .hero .body { padding: 6px 10px 0; flex: 1; display: flex; flex-direction: column; }
+  .hero .where { font: 700 12px var(--sans); letter-spacing: 1.2px; text-transform: uppercase; }
+  .hero h2 { font: 700 27px/1.02 var(--narrow); margin-top: 3px; height: 56px; overflow: hidden; }
+  .hero p { font: 400 15px/1.2 var(--narrow); color: var(--muted); margin-top: 3px; height: 38px; overflow: hidden; }
+
+  /* Region desks */
+  .desks { position: absolute; left: 16px; top: 396px; width: 992px; height: 602px; display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: 1fr 1fr; gap: 10px; }
+  .desk { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 0 #d8d0bd; display: flex; flex-direction: column; }
+  .desk header { height: 38px; flex: none; display: flex; align-items: center; padding: 0 10px; color: #fff; font: 700 26px/1 var(--narrow); white-space: nowrap; letter-spacing: .4px; text-transform: uppercase; }
+  .desk header small { font: 700 13px var(--sans); opacity: .9; letter-spacing: 1px; }
+  .desk ol { list-style: none; padding: 2px 10px 2px; flex: 1; min-height: 0; overflow: hidden; display: flex; flex-direction: column; justify-content: space-evenly; }
+  .desk li { padding: 3px 0 4px; border-top: 1px solid #e4ddcc; }
+  .desk li:first-child { border-top: 0; }
+  .desk li b { display: block; font: 700 16px/1.08 var(--narrow); }
+  .desk li b i { font-style: normal; font-weight: 700; }
+  .desk li span { display: block; font: 400 13px/1.18 var(--narrow); color: var(--muted); margin-top: 2px; }
+  .desk li em { font-style: normal; color: #8a8478; }
+
+  .foot { position: absolute; left: 16px; right: 16px; top: 1001px; height: 20px; display: flex; justify-content: space-between; font: 400 12px/20px var(--sans); color: #6b6658; white-space: nowrap; overflow: hidden; }
+  .foot b { color: #a3141f; }
+</style>
+</head>
+<body>
+<div class="mast">
+  <div class="top fit" id="mast-top"></div>
+  <h1 class="fit">Friday 20 November 2026</h1>
+</div>
+<div class="heroes" id="heroes"></div>
+<div class="desks" id="desks"></div>
+<div class="foot fit" id="foot"></div>
+
+<!-- Hero drawings: flat shapes with gradient glows, drawn for this entry -->
+<template id="art-kyiv">
+  <svg viewBox="0 0 240 124" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <linearGradient id="k-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#16123f"/><stop offset=".75" stop-color="#3b2a72"/><stop offset="1" stop-color="#6a3f86"/></linearGradient>
+      <radialGradient id="k-blast"><stop offset="0" stop-color="#fffbe0"/><stop offset=".3" stop-color="#ffd166" stop-opacity=".95"/><stop offset=".6" stop-color="#ff7a2f" stop-opacity=".4"/><stop offset="1" stop-color="#ff4d2e" stop-opacity="0"/></radialGradient>
+      <linearGradient id="k-trail" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd166" stop-opacity="0"/><stop offset="1" stop-color="#ffe9a8"/></linearGradient>
+    </defs>
+    <rect width="240" height="124" fill="url(#k-sky)"/>
+    <path d="M0 74 h18 v-14 h14 v10 h12 v-22 h9 v22 h14 v-10 h18 v-6 l6 -9 l6 9 v16 h16 v-18 h14 v18 h18 v-12 h14 v12 h22 v-16 h16 v16 h18 v-8 h16 v20 H0 Z" fill="#2c2466"/>
+    <rect y="88" width="240" height="36" fill="#22407e"/>
+    <rect y="82" width="240" height="7" fill="#c7c1ef"/>
+    <path d="M4 89 Q 40 62 76 89 M84 89 Q 120 62 156 89 M164 89 Q 200 62 236 89" fill="none" stroke="#c7c1ef" stroke-width="4"/>
+    <g stroke="url(#k-trail)" stroke-width="3" stroke-linecap="round"><path d="M150 -4 L 60 80"/><path d="M210 -4 L 122 80"/><path d="M262 -4 L 196 80"/></g>
+    <circle cx="58" cy="82" r="30" fill="url(#k-blast)"/><circle cx="120" cy="82" r="26" fill="url(#k-blast)"/><circle cx="196" cy="82" r="28" fill="url(#k-blast)"/>
+    <g fill="#ffb347" opacity=".4"><ellipse cx="58" cy="108" rx="18" ry="3"/><ellipse cx="120" cy="110" rx="15" ry="3"/><ellipse cx="196" cy="108" rx="17" ry="3"/></g>
+  </svg>
+</template>
+<template id="art-cyclone">
+  <svg viewBox="0 0 240 124" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <linearGradient id="c-space" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b0d2b"/><stop offset="1" stop-color="#1a2a6a"/></linearGradient>
+      <radialGradient id="c-sea" cx=".3" cy=".2" r="1"><stop offset="0" stop-color="#3f8fd6"/><stop offset="1" stop-color="#173f87"/></radialGradient>
+      <radialGradient id="c-glow"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    </defs>
+    <rect width="240" height="124" fill="url(#c-space)"/>
+    <circle cx="140" cy="420" r="380" fill="url(#c-sea)"/>
+    <path d="M0 60 C 30 66 52 74 70 92 C 82 104 92 116 100 124 L 0 124 Z" fill="#4c9a5b"/>
+    <circle cx="140" cy="74" r="58" fill="url(#c-glow)"/>
+    <g transform="translate(140,74)" fill="none" stroke-linecap="round" stroke="#fff">
+      <path d="M0 -11 A 30 30 0 1 1 -40 -30" stroke-width="13" opacity=".55"/><path d="M0 11 A 30 30 0 1 1 40 30" stroke-width="13" opacity=".55"/>
+      <path d="M0 -6 A 19 19 0 1 1 -25 -18" stroke-width="9"/><path d="M0 6 A 19 19 0 1 1 25 18" stroke-width="9"/>
+      <circle r="5" fill="#1a2a6a" stroke="none"/>
+    </g>
+    <path d="M112 76 L 70 90" stroke="#ffcb47" stroke-width="2.5" stroke-dasharray="5 4"/>
+    <circle cx="68" cy="91" r="5" fill="#ffcb47"/>
+  </svg>
+</template>
+<template id="art-markets">
+  <svg viewBox="0 0 240 124" preserveAspectRatio="xMidYMid slice">
+    <defs><linearGradient id="m-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0f2a4a"/><stop offset="1" stop-color="#1b1a4d"/></linearGradient></defs>
+    <rect width="240" height="124" fill="url(#m-bg)"/>
+    <g stroke="#2c4778" stroke-width="1.5"><path d="M0 30 h240 M0 60 h240 M0 90 h240 M60 0 v124 M120 0 v124 M180 0 v124"/></g>
+    <g fill="#ff5c6c">
+      <rect x="40" y="30" width="12" height="26" rx="2"/><rect x="70" y="44" width="12" height="28" rx="2"/><rect x="100" y="58" width="12" height="26" rx="2"/>
+      <rect x="130" y="70" width="12" height="30" rx="2"/><rect x="160" y="84" width="12" height="26" rx="2"/>
+    </g>
+    <rect x="12" y="20" width="12" height="24" rx="2" fill="#34d399"/>
+    <polyline points="10,26 46,36 76,54 106,70 136,88 170,104 196,112" fill="none" stroke="#ff5c6c" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" opacity=".25"/>
+    <polyline points="10,26 46,36 76,54 106,70 136,88 170,104 196,112" fill="none" stroke="#ff8a96" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <polygon points="212,118 190,118 202,100" fill="#ff8a96"/>
+  </svg>
+</template>
+<template id="art-cop">
+  <svg viewBox="0 0 240 124" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <linearGradient id="g-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#103a3a"/><stop offset="1" stop-color="#1b2550"/></linearGradient>
+      <radialGradient id="g-sea" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#4fb4f0"/><stop offset="1" stop-color="#1d5bb0"/></radialGradient>
+      <radialGradient id="g-glow"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    </defs>
+    <rect width="240" height="124" fill="url(#g-bg)"/>
+    <circle cx="96" cy="66" r="62" fill="url(#g-glow)"/>
+    <circle cx="96" cy="66" r="42" fill="url(#g-sea)"/>
+    <path d="M70 46 c 9 -10 26 -9 30 1 c 4 9 -7 15 -3 22 c 4 8 -9 14 -18 9 c -9 -5 -17 -22 -9 -32 Z M106 36 c 10 -1 18 6 18 14 c 0 6 -7 8 -12 5 c -6 -4 -13 -16 -6 -19 Z" fill="#5cc27a"/>
+    <g transform="translate(150,74)">
+      <path d="M0 -30 C 0 -30 -19 -4 -19 8 A 19 19 0 0 0 19 8 C 19 -4 0 -30 0 -30 Z" fill="#1d1d2b"/>
+      <line x1="-26" y1="26" x2="26" y2="-26" stroke="#ff5c6c" stroke-width="7" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(206,40)"><circle r="20" fill="#ffcb47"/><circle r="15" fill="#fff6d6"/><path d="M0 0 v-10 M0 0 h8" stroke="#3a2a00" stroke-width="3" stroke-linecap="round"/></g>
+  </svg>
+</template>
+
+<script src="stories.js"></script>
+<script>
+  const D = window.NEWS;
+  const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+  document.getElementById('mast-top').innerHTML = D.mastTop.map(t => `<span>${esc(t)}</span>`).join('');
+
+  const heroes = document.getElementById('heroes');
+  for (const h of D.heroes) {
+    const card = document.createElement('div');
+    card.className = 'hero';
+    card.innerHTML = `<div class="art">${document.getElementById('art-' + h.art).innerHTML}
+        <div class="label" style="background:${h.color}">${esc(h.label)}</div>
+        ${h.num ? `<div class="num">${esc(h.num)}</div>` : ''}</div>
+      <div class="body"><div class="where" style="color:${h.color}">${esc(h.where)}</div>
+        <h2 class="fit">${esc(h.head)}</h2><p class="fit">${esc(h.detail)} <em style="font-style:normal;color:#8a8478">${esc(h.src)}</em></p></div>`;
+    heroes.appendChild(card);
+  }
+
+  const desks = document.getElementById('desks');
+  for (const d of D.desks) {
+    const el = document.createElement('section');
+    el.className = 'desk';
+    el.innerHTML = `<header style="background:${d.color}"><span>${esc(d.name)}</span></header>
+      <ol class="fit">${d.stories.map(s => `<li><b><i style="color:${d.color}">${esc(s.place)}</i> ${esc(s.head)}</b><span>${esc(s.detail)} <em>${esc(s.src)}</em></span></li>`).join('')}</ol>`;
+    desks.appendChild(el);
+  }
+  document.getElementById('foot').innerHTML = D.foot;
+</script>
+</body>
+</html>
